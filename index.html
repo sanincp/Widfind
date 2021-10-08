@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="how to find width and height of my device"
+      />
+      <meta name="keywords" content="what is my screen resolution" />
+      <meta name="keywords" content="what is my screen width and height" />
+      <meta name="keywords" content="how to find my screen width and height" />
+      <meta name="developer" content="muhammed sanin cp" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>WidFind</title>
+      <link
+      rel="icon"
+      href="img/download-removebg-preview.png"
+      type="image/gif"
+      sizes="16x16"
+    />
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body onload="myFunction()">
+    <div class="main">
+      <nav>
+        <input type="checkbox" id="check" />
+        <label for="check" class="checkbtn">
+          <i class="bi bi-list"></i>
+        </label>
+        <label class="logo font-monospace">WidFind</label>
+        <ul>
+          <li><a href="#" onclick="Home()">Home</a></li>
+          <li><a href="#" onclick="about()">About</a></li>
+          <li><a href="#" onclick="Services()">Services</a></li>
+          <li><a href="#" onclick="Contact()">Contact</a></li>
+          <li>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Feedback</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div id="show" class="show">
+        <!--desktop-->
+        <div id="desktop" class="desktop row">
+          <div class="col-lg-6">
+            <div class="lg-container mx-auto">
+              <img src="img/desktop.jpg" alt="Avatar" class="lg-image" />
+              <div class="lg-overlay">
+                <div class="text-overlay lg-width">
+                  <p>
+                    Width<i class="bi bi-arrow-right-short"></i>
+                    <span id="lg-width"></span>
+                  </p>
+                </div>
+                <div class="text-overlay lg-height">
+                  <p>
+                    Height<i class="bi bi-arrow-right-short"></i>
+                    <span id="lg-height"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 lg-detail-box">
+            <h1 class="text-center mt-3">Your Screen Resolution is</h1>
+            <h2 class="text-center mt-5">
+              <span class="Width display-5"></span> X
+              <span class="Height display-5"></span>
+            </h2>
+            <h2 class="mt-5 text-center">
+              Screen Width: <span class="Width"></span> pixels
+            </h2>
+            <h2 class="mt-3 text-center">
+              Screen Height: <span class="Height"></span> pixels
+            </h2>
+            <h2 class="mt-3 text-center">Device Type: Monitor</h2>
+          </div>
+        </div>
+        <!--desktop end-->
+
+        <!--laptop-->
+        <div id="laptop" class="laptop row" style="display: none">
+          <div class="col-lg-6" style="width: 50%">
+            <div class="lp-container mx-auto">
+              <img src="img/laptop.jpg" alt="Avatar" class="lp-image" />
+              <div class="lp-overlay">
+                <div class="text-overlay lp-width">
+                  <p>
+                    Width
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Width"></span>
+                  </p>
+                </div>
+
+                <div class="text-overlay lp-height">
+                  <p>
+                    Height
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Height"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 lp-detail-box">
+            <h2 class="text-center mt-3 mb-5">Your Screen Resolution is</h2>
+            <h3 class="text-center mt-3">
+              <span class="Width display-5"></span>
+              X
+              <span class="Height display-5"></span>
+              &nbsp
+              <i
+                class="bi bi-clipboard clipboard-icon copyIcon"
+                onclick="clipBoard()"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copy to clipboard"
+              ></i>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copied!"
+                class="bi bi-check2 text-primary cheekIcon"
+                style="display: none"
+              ></i>
+            </h3>
+            <h3 class="mt-5 text-center">
+              Screen Width: <span class="Width"></span> pixels
+            </h3>
+            <h3 class="mt-3 text-center">
+              Screen Height: <span class="Height"></span> pixels
+            </h3>
+            <h3 class="mt-3 text-center">Device Type: Laptop</h3>
+          </div>
+        </div>
+        <!--laptop end-->
+
+        <!--tablet-->
+        <div id="tab" class="tab row" style="display: none">
+          <div class="col-md-12" style="width: 100%">
+            <div class="tab-container mx-auto">
+              <img
+                src="img/tablet-with-blank-white-screen-front-view-vector-24374248.jpg"
+                alt="Avatar"
+                class="tab-image mx-auto mt-5"
+              />
+              <div class="tab-overlay">
+                <div class="text-overlay tab-width text-nowrap">
+                  <p>
+                    Width
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Width"></span>
+                  </p>
+                </div>
+
+                <div class="text-overlay tab-height">
+                  <p>
+                    Height
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Height"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 tab-detail-box mx-auto">
+            <h2 class="text-center mt-3 mb-5">Your Screen Resolution is</h2>
+            <h3 class="text-center mt-3">
+              <span class="Width display-5"></span>
+              X
+              <span class="Height display-5"></span>
+              &nbsp
+              <i
+                class="bi bi-clipboard clipboard-icon copyIcon"
+                onclick="clipBoard()"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copy to clipboard"
+              ></i>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copied!"
+                class="bi bi-check2 text-primary cheekIcon"
+                style="display: none"
+              ></i>
+            </h3>
+            <h3 class="mt-5 text-center">
+              Screen Width: <span class="Width"></span> pixels
+            </h3>
+            <h3 class="mt-3 text-center">
+              Screen Height: <span class="Height"></span> pixels
+            </h3>
+            <h3 class="mt-3 text-center">Device Type: Tablet</h3>
+          </div>
+        </div>
+        <!--tablet end-->
+
+        <!--phone-->
+        <div id="phone" class="phone row" style="display: none">
+          <div class="col-sm-12" style="width: 100%">
+            <div class="sm-container mx-auto">
+              <img
+                src="img/phone.jpg"
+                alt="Avatar"
+                class="sm-image mx-auto mt-5"
+              />
+              <div class="sm-overlay">
+                <div class="text-overlay sm-width text-nowrap">
+                  <p>
+                    Width
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Width"></span>
+                  </p>
+                </div>
+
+                <div class="text-overlay sm-height text-nowrap">
+                  <p>
+                    Height
+                    <i class="bi bi-arrow-right-short"></i>
+                    <span class="Height"></span>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 sm-detail-box mx-auto">
+            <h2 class="text-center mt-4 mb-4">Your Screen Resolution is</h2>
+            <h3 class="text-center mt-3">
+              <span class="Width display-5"></span>
+              X
+              <span class="Height display-5"></span>
+              &nbsp
+              <i
+                class="bi bi-clipboard clipboard-icon copyIcon"
+                onclick="clipBoard()"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copy to clipboard"
+              ></i>
+              <i
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Copied!"
+                class="bi bi-check2 text-primary cheekIcon"
+                style="display: none"
+              ></i>
+            </h3>
+            <h3 class="mt-3 text-center">
+              Screen Width: <span class="Width"></span> pixels
+            </h3>
+            <h3 class="mt-3 text-center">
+              Screen Height: <span class="Height"></span> pixels
+            </h3>
+            <h3 class="mt-3 mb-3 text-center">Device Type: smart phone</h3>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer" class="footer-basic mx-auto mt-5">
+        <footer>
+          <div class="social mt-4">
+            <a href="#"><i class="icon-1 bi bi-instagram"></i></a>
+            <a href="www.sanin."><i class="icon-1 bi bi-globe2"></i></a>
+            <a href="#"><i class="icon ion-social-twitter"></i></a>
+            <a href="#"><i class="icon ion-social-facebook"></i></a>
+          </div>
+          <p class="copyright mt-1">SAN Digital Develop © 2021</p>
+        </footer>
+      </div>
+    </div>
+
+    <!--contact-->
+
+    <div id="contact" class="row" style="display: none">
+      <h1 class="text-center fw-bold mt-5">
+        Contact <span class="text-primary">Us</span>
+      </h1>
+
+      <div
+        class="
+          contact-card
+          d-flex
+          flex-column
+          mt-5
+          col-lg-5
+          text-center
+          col-sm-12
+          mr-5
+        "
+      >
+        <div class="c-cards mb-4 mx-auto">
+          <p class="text-center mt-3 card-icon">
+            <i class="bi bi-envelope"></i>
+          </p>
+          <h5 class="fw-bold mb-2">E-mail</h5>
+          <p class="card-text mb-4">
+            saninmonu1212@gmail.com <br />saninwebdesingnig@gmail.com
+          </p>
+        </div>
+
+        <div class="c-cards mx-auto">
+          <p class="text-center mt-2 card-icon">
+            <i class="bi bi-geo-alt"></i>
+          </p>
+          <h5 class="fw-bold">Address</h5>
+          <p class="card-text mb-4">
+            Malappuram , kerala <br />
+            india
+          </p>
+        </div>
+      </div>
+
+      <div class="container col-lg-6 col-sm-12 mt-5">
+        <form id="contactForm" class="mx-auto" style="width: 90%">
+          <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input
+              class="form-control"
+              id="name"
+              type="text"
+              placeholder="Name"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="emailAddress">Email Address</label>
+            <input
+              class="form-control"
+              id="emailAddress"
+              type="email"
+              placeholder="Email Address"
+            />
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea
+              class="form-control"
+              id="message"
+              type="text"
+              placeholder="Message"
+              style="height: 10rem"
+            ></textarea>
+          </div>
+
+          <div class="d-grid">
+            <button class="btn btn-primary btn-lg" type="submit">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--contact end-->
+
+    <!--feedback-->
+    <div
+      class="modal fade Feedback-popup"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5
+              class="modal-title fw-bold h2 text-primary"
+              style="margin-left: 35%"
+              id="exampleModalLabel"
+            >
+              Feedback
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label"
+                  >Email:</label
+                >
+                <input type="email" class="form-control" id="recipient-name" />
+              </div>
+              <div class="mb-3">
+                <label for="message-text" class="col-form-label"
+                  >Subject:</label
+                >
+                <textarea class="form-control" id="message-text"></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+            <button
+              onclick="popUp()"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Send message
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--feedback end-->
+
+    <!--about-->
+    <div id="about" style="display: none">
+      <section class="section about-section gray-bg" id="about">
+        <div class="container">
+          <div class="row align-items-center flex-row-reverse">
+            <div class="col-lg-6">
+              <div class="about-text go-to">
+                <h3 class="dark-color">About Me</h3>
+                <h6 class="theme-color lead">
+                  Muhammed Sanin CP -Web Desginer
+                </h6>
+                <p>
+                  I <mark>design and develop</mark> services for customers of
+                  all sizes, specializing in creating stylish, modern websites,
+                  web services and online stores. My passion is to design
+                  digital user experiences through the bold interface and
+                  meaningful interactions.
+                </p>
+                <div class="row about-list">
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label>Birthday</label>
+                      <p>19th may 2005</p>
+                    </div>
+                    <div class="media">
+                      <label>Age</label>
+                      <p>16 Yr</p>
+                    </div>
+                    <div class="media">
+                      <label>Residence</label>
+                      <p>india</p>
+                    </div>
+                    <div class="media">
+                      <label>Address</label>
+                      <p>kerala, india</p>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="media">
+                      <label>E-mail</label>
+                      <p>saninmonu1212@gamil.com</p>
+                    </div>
+                    <div class="media">
+                      <label>Phone</label>
+                      <p>8089472412</p>
+                    </div>
+                    <div class="media">
+                      <label>Instagram</label>
+                      <p>sanin_12</p>
+                    </div>
+                    <div class="media">
+                      <label>Freelance</label>
+                      <p>Available</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="about-avatar">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                  title=""
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="services" class="Services" style="display: none">
+      <div class="div-top pb-5 text-center">
+        <h1 class="serv-title text-center">Wellcome to WidFind</h1>
+        <h5 class="text-center fw-bold mt-1 mb-5">
+          A Prefect Tool For Finding Screen Width & Height of all Device
+        </h5>
+        <a href="" onclick="home()" class="serv-btn p-3 fw-bold">START NOW</a>
+      </div>
+
+      <div class="div-down">
+        <h3 class="dwn-div-title fw-bold mt-5">About this page</h3>
+        <p class="dwn-div-p">
+          An Online tool to check screen resolution of any display device. Using
+          WidFind.com, you can test resolution of your monitor, iPad, tablet,
+          iPhone, MacBook or any other display device. The Screen resolution is
+          generally measured as width x height in pixels. For example resolution
+          1920 x 1080 means the 1920 pixels is width and 1080 pixels is height
+          of the screen.
+        </p>
+        <ol class="dwn-div-ul">
+          <li><i class="bi bi-dot"></i>Supper Fast</li>
+          <li><i class="bi bi-dot"></i>Fully Free</li>
+          <li><i class="bi bi-dot"></i>Accses in all device</li>
+        </ol>
+
+        <h3 class="dwn-div-title fw-bold mt-5">Search Tag</h3>
+        <p class="dwn-div-p">
+          In information systems, a tag is a keyword or term assigned to a piece
+          of information (such as an Internet bookmark, digital image, database
+          record, or computer file). This kind of metadata helps describe an
+          item and allows it to be found again by browsing or searching.
+        </p>
+        <ol class="dwn-div-ul">
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my screen resolution
+            </a>
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >how to find my screen resolution</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my device width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >how to find width and height of my device</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my screen width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >how to find my screen width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my phone width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my tab width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my laptop width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my monitor width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my iphone width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my android phone width and height</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a">width height finder</a>
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >Screen width height finder</a
+            >
+          </li>
+          <li>
+            <i class="bi bi-dot"></i
+            ><a href="" onclick="home()" class="tag-a"
+              >what is my screen length and breadth</a
+            >
+          </li>
+        </ol>
+    </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
